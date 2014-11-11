@@ -1,0 +1,15 @@
+---
+language: go
+go:
+- 1.2.2
+- 1.3.3
+- tip
+env:
+- GOARCH=amd64
+- GOARCH=386
+install:
+- go get -d ./...
+script:
+- go test ./...
+- curl -sLO https://raw.githubusercontent.com/rafecolton/fmtpolice/master/fmtpolice && chmod +x fmtpolice
+- ./fmtpolice
